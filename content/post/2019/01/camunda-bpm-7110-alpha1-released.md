@@ -25,6 +25,8 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 ## Fine-grained Permissions for Batches and Job Retries
 
+Within this alpha, we introduce the first portion of more fine-grained permissions. It contains create batch permission for each type of batch operation. Also, job retry permission for process definitions and process instances. Here is a use case when these permissions will be a handful: An user is allowed to perform set retries batch operation and they are not supposed to delete process instance by batch. In such case, the user can be granted "Create Batch Set Job Retries" permission and they will be able to perform only this time of batch operations. For a complete list of the available permission, please visit our [User guide](https://docs.camunda.org/manual/latest/user-guide/process-engine/authorization-service/#additional-batch-permissions). Stay tuned for further permission additions for process instance and process definition in the next alpha releases. 
+
 ## MariaDB/MySQL: Job Due Dates after 2038
 
 Idea (Thorben): Could link to this in the introduction: https://en.wikipedia.org/wiki/Year_2038_problem
