@@ -33,6 +33,25 @@ Idea (Thorben): Could link to this in the introduction: https://en.wikipedia.org
 
 ## JBoss/Wildfly: Expressions in Camunda Subsystem
 
+Starting with this alpha, it is possible to reference system properties using Ant-style expressions (i.e., `${PROPERTY_KEY}`) in the camunda subsystem in the server configuration of JBoss AS 7 and all WildFly versions (`standalone.xml` or `domain.xml`). 
+
+All elements and attributes except for the `name` attribute on the elements `process-engine` and `job-acquisition` support expressions. 
+
+Here is an example:
+
+```xml
+<!-- ... -->
+<plugin>
+  <class>org.camunda.bpm.engine.impl.plugin.AdministratorAuthorizationPlugin</class>
+  <properties>
+    <property name="administratorUserName">${camunda.administratorUserName}</property>
+  </properties>
+</plugin>
+<!-- ... -->
+```
+
+Read more on expressions in the documentation for [JBoss](https://docs.jboss.org/author/display/AS71/Expressions) and [WildFly](http://docs.wildfly.org/15/Extending_WildFly.html#expressions).
+
 ## Java/REST API: Deleting Historic Variables
 
 <!--no-more-->
