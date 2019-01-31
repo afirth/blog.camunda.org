@@ -54,6 +54,23 @@ Read more on expressions in the documentation for [JBoss](https://docs.jboss.org
 
 ## Java/REST API: Deleting Historic Variables
 
+Everbody has a right to be forgotten. But sometimes you don't want to erase just everything right away.
+Thus, this alpha now allows to delete the history of variables without removing the whole parent instance itself.
+The history can be deleted per variable and per process instance. You can find an example for both below:
+```java
+historyService.deleteHistoricVariableInstance("aVariableInstanceId");
+
+historyService.deleteHistoricVariableInstancesByProcessInstanceId("aProcessInstanceId");
+```
+
+The REST API examples would look as follows (both calls return status code `204 No content`):
+
+DELETE `/history/variable-instance/aHistoricVariableId`
+
+DELETE `/history/process-instance/aProcessInstanceId/variable-instances`
+
+For more infomation please check the REST documentation [here](https://docs.camunda.org/manual/latest/reference/rest/history/variable-instance/delete-variable-instance/) and [here](https://docs.camunda.org/manual/latest/reference/rest/history/process-instance/delete-variable-instances/).
+
 <!--no-more-->
 
 ## What's Next?
