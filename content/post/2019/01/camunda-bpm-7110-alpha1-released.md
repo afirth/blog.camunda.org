@@ -2,7 +2,7 @@
 author = "Camunda BPM Team"
 categories = ["Execution"]
 tags = ["Release Note"]
-date = "2019-02-01T12:00:00+01:00"
+date = "2019-01-29T12:00:00+01:00"
 title = "Camunda 7.11.0-alpha1 Released"
 +++
 
@@ -29,7 +29,15 @@ Within this alpha, we introduce the first portion of more fine-grained permissio
 
 ## MariaDB/MySQL: Job Due Dates after 2038
 
-Idea (Thorben): Could link to this in the introduction: https://en.wikipedia.org/wiki/Year_2038_problem
+The Internet will end in 2038!
+
+What is this about? The MySQL/MariaDB `TIMESTAMP` data type has the [Y2K38 bug](https://en.wikipedia.org/wiki/Year_2038_problem) that is related to time representation as the seconds elapsed since `01 January 1970` stored in a `signed 32-bit integer`.
+
+Why is this bad? Well, the latest date that can be stored this way is `03:14:07 19 January 2038 (UTC)`, making it impossible to set a `TIMESTAMP` with a future date beyond 2038. This puts the Camunda engine in a sticky situation when trying to set a `due date` for a long-running job execution.
+
+So the Internet will probably not end in 2038, but the Camunda engines, using a MySQL/MariaDB database, will definitely continue working away, executing jobs even after that date. With this alpha release we made sure that all the MySQL/MariaDB `TIMESTAMP` columns that contain future dates, most significantly the `Job DUEDATE_` column, have been migrated to `DateTime` columns which have a much larger time range.
+
+A drawback of the `DateTime` data type is that it does not store time zone information. That means that when updating from an older version of the engine, the update script will use the database server time zone to convert the `TIMESTAMP` into `DateTime` values of that time zone.
 
 ## JBoss/Wildfly: Expressions in Camunda Subsystem
 
