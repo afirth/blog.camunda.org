@@ -11,7 +11,6 @@ title = "Camunda BPM 7.11.0-alpha2 Released"
 * Fine-grained Permissions for Tasks and Process Instances
 * Recalculate Timer Due Dates
 * Java/REST API: Case Insensitive Semantics for Task Variables
-* Webapps: Updates of front-end libraries
 * Cockpit: Delete Variable History
 * [XXX Bug Fixes](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.11.0-alpha2)
 
@@ -33,10 +32,6 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 
 ## Java/REST API: Case Insensitive Semantics for Task Variables
-
-
-
-## Webapps: Updates of library versions
 
 
 
