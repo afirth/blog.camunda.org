@@ -9,7 +9,7 @@ title = "Camunda BPM 7.11.0-alpha2 Released"
 **Camunda BPM 7.11.0-alpha2** is here and the highlights are:
 
 * Fine-grained Permissions for Tasks and Process Instances
-* Recalculate Timer Due Dates
+* Java/REST API: Recalculate Timer Due Dates
 * Java/REST API: Case Insensitive Semantics for Task Variables
 * Cockpit: Delete Variable History
 * [XXX Bug Fixes](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.11.0-alpha2)
@@ -27,8 +27,28 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 
 
-## Recalculate Timer Due Dates
+## Java/REST API: Recalculate Timer Due Dates
+Everything changes and nothing stands still.
+Thus, this alpha now allows recalculation of job due dates. 
+This comes in handy if your due dates are based on variables and other context that might change over time. 
 
+The recalculation can be based on the original creation date of the job or the current date.
+The first option will be the default for REST API interaction if you do not specify otherwise.
+You can find an example for both below:
+
+```java
+managementService.recalculateJobDuedate("aJobId", true);// based on original creation date of the job
+
+managementService.recalculateJobDuedate("aJobId", false);// based on current date
+```
+
+The REST API examples would look as follows (both calls return status code `204 No content`):
+
+POST `/job/aJobId/duedate/recalculate`
+
+POST `/job/aJobId/duedate/recalculate?creationDateBased=false`
+
+For more infomation please check the [REST documentation](https://docs.camunda.org/manual/latest/reference/rest/job/post-recalculate-job-duedate/).
 
 
 ## Java/REST API: Case Insensitive Semantics for Task Variables
