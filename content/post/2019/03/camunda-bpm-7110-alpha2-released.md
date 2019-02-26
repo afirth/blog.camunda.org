@@ -98,7 +98,9 @@ You can find more information on the new TaskQuery features [here](https://docs.
 
 
 ## Cockpit: Delete Variable History
+In the previous alpha, we introduced the possibility to delete historical variables using API calls. Now it has become possible to do so directly in cockpit. You can simply specific or all variables from the process history view.
 
+You can find more information on how to use this feature [here](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/process-history-views/).
 
 
 <!--no-more-->
