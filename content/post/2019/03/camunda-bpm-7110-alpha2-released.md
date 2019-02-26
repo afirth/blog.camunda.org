@@ -2,7 +2,7 @@
 author = "Camunda BPM Team"
 categories = ["Execution"]
 tags = ["Release Note"]
-date = "2019-03-01T08:00:00+01:00"
+date = "2019-02-01T08:00:00+01:00"
 title = "Camunda BPM 7.11.0-alpha2 Released"
 +++
 
@@ -35,15 +35,13 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 From this release on, queries for tasks with process-, task- and or case instance variables support case-insensitive semantics.
 
-There are three new operators to help you use this feature with the REST API: eqci, neqci and likeci (corresponding to eq, neq and like) 
+There are three new operators to help you use this feature with the REST API: `eqic`, `neqic` and `likeic` (corresponding to `eq`, `neq` and `like`, with _ic_ standing for `ignore case`) Here are some examples:
 
-Here are some examples.
+GET `/task?taskVariables=varName_eqic_varValue`
 
-GET `/task?taskVariables=varName_eqci_varValue`
+GET `/task?processVariables=varName_neqic_varValue`
 
-GET `/task?processVariables=varName_neqci_varValue`
-
-GET `/task?caseInstanceVariables=varName_likeci_varValue`
+GET `/task?caseInstanceVariables=varName_likeic_varValue`
 
 
 A POST request could look like this:
@@ -56,13 +54,13 @@ Request Body:
 {"taskVariables":
     [{"name": "varName",
     "value": "varValue",
-    "operator": "eqci"},
+    "operator": "eqic"},
     {"name": "anotherVarName",
     "value": "anotherVarValue",
-    "operator": "likeci"},
+    "operator": "likeic"},
    {"name": "thirdVarName",
     "value": "thirdVarValue",
-    "operator": "neqci"}]
+    "operator": "neqic"}]
 }
 ```
 
@@ -71,9 +69,9 @@ For more information please check the documentation [here](https://docs.camunda.
 The new semantics are also supported in the Java API. They can be used for `TaskQuery` and `TaskFilter`. Creating a case-insensitive `TaskQuery` with Java is as simple as:
 
 ```java
-taskQuery.taskVariableValueEqualsCaseInsensitive(variableName, variableValue)
-taskQuery.processVariableValueNotEqualsCaseInsensitive(variableName, variableValue)
-taskQuery.caseInstanceVariableValueLikeCaseInsensitive(variableName, variableValue)
+taskQuery.taskVariableValueEqualsIgnoreCase(variableName, variableValue)
+taskQuery.processVariableValueNotEqualsIgnoreCase(variableName, variableValue)
+taskQuery.caseInstanceVariableValueLikeIgnoreCase(variableName, variableValue)
 ```
 
 You can find more information on the new TaskQuery features [here](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/task/TaskQuery.html).
