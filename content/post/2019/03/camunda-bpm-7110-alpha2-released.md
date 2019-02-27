@@ -61,9 +61,11 @@ For more information please check the [REST documentation](https://docs.camunda.
 
 ## Java/REST API: Case Insensitive Semantics for Task Variables
 
-From this release on, queries for tasks with process-, task- and or case instance variables support case-insensitive semantics.
+With this alpha, queries for tasks with task, process and case instance variables support case-insensitive semantics.
 
-There are three new operators to help you use this feature with the REST API: `eqic`, `neqic` and `likeic` (corresponding to `eq`, `neq` and `like`, with _ic_ standing for `ignore case`) Here are some examples:
+There are three new operators to help you use this feature with the REST API: `eqic`, `neqic` and `likeic` (corresponding to `eq`, `neq` and `like`, with _ic_ standing for `ignore case`).
+
+Here are some examples:
 
 GET `/task?taskVariables=varName_eqic_varValue`
 
@@ -79,16 +81,24 @@ POST `/task`
 Request Body:
 
 ```json
-{"taskVariables":
-  [{"name": "varName",
-  "value": "varValue",
-  "operator": "eqic"},
-  {"name": "anotherVarName",
-  "value": "anotherVarValue",
-  "operator": "likeic"},
-  {"name": "thirdVarName",
-  "value": "thirdVarValue",
-  "operator": "neqic"}]
+{
+  "taskVariables": [
+    {
+      "name": "varName",
+      "value": "varValue",
+      "operator": "eqic"
+    },
+    {
+      "name": "anotherVarName",
+      "value": "anotherVarValue",
+      "operator": "likeic"
+    },
+    {
+      "name": "thirdVarName",
+      "value": "thirdVarValue",
+      "operator": "neqic"
+    }
+  ]
 }
 ```
 
