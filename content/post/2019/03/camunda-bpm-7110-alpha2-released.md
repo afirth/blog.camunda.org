@@ -8,7 +8,7 @@ title = "Camunda BPM 7.11.0-alpha2 Released"
 
 **Camunda BPM 7.11.0-alpha2** is here and the highlights are:
 
-* Fine-grained Permissions for Tasks and Process Instances
+* Fine-grained Permissions for Tasks, Process Instances, and Process Definitions
 * Java/REST API: Recalculate Timer Due Dates
 * Java/REST API: Case Insensitive Semantics for Task Variables
 * Cockpit: Delete Variable History
@@ -23,9 +23,17 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 <!--more-->
 
-## Fine-grained Permissions for Tasks and Process Instances
+## Fine-grained Permissions for Tasks, Process Instances, and Process Definitions
 
+We add a few more fine-grained permissions in Admin Webapp. The new additions are: 
 
+* _Update Variable_ and _Read Variable_ for Tasks
+* _Retry Job_, _Suspend_, and _Update Variable_ for Process Instances
+* _Suspend Instance_, _Update Instance Variable_, and _Update Task Variable_ for Process Definitions
+* _Read Task Variable_, _Read Instance Variable_, and _Read History Variable_ for Process Definition which are disabled by default. Please learn more [here](https://docs.camunda.org/manual/latest/user-guide/process-engine/authorization-service/#default-read-variable-permissions)
+
+Having these fine-grained permissions, you can grant a user to be allowed to perform only the specific operation (_Suspend Instance_) for which they are assigned to do. In comparison to grant them _Update_ permission which allows them to perform more than that.
+For a complete list of the available permissions, please visit our [User guide](https://docs.camunda.org/manual/latest/user-guide/process-engine/authorization-service/#permissions-by-resource).
 
 ## Java/REST API: Recalculate Timer Due Dates
 Everything changes and nothing stands still.
@@ -48,7 +56,7 @@ POST `/job/aJobId/duedate/recalculate`
 
 POST `/job/aJobId/duedate/recalculate?creationDateBased=false`
 
-For more infomation please check the [REST documentation](https://docs.camunda.org/manual/latest/reference/rest/job/post-recalculate-job-duedate/).
+For more information please check the [REST documentation](https://docs.camunda.org/manual/latest/reference/rest/job/post-recalculate-job-duedate/).
 
 
 ## Java/REST API: Case Insensitive Semantics for Task Variables
@@ -72,15 +80,15 @@ Request Body:
 
 ```json
 {"taskVariables":
-    [{"name": "varName",
-    "value": "varValue",
-    "operator": "eqic"},
-    {"name": "anotherVarName",
-    "value": "anotherVarValue",
-    "operator": "likeic"},
-   {"name": "thirdVarName",
-    "value": "thirdVarValue",
-    "operator": "neqic"}]
+  [{"name": "varName",
+  "value": "varValue",
+  "operator": "eqic"},
+  {"name": "anotherVarName",
+  "value": "anotherVarValue",
+  "operator": "likeic"},
+  {"name": "thirdVarName",
+  "value": "thirdVarValue",
+  "operator": "neqic"}]
 }
 ```
 
@@ -98,7 +106,7 @@ You can find more information on the new TaskQuery features [here](https://docs.
 
 
 ## Cockpit: Delete Variable History
-In the previous alpha, we introduced the possibility to delete historical variables using API calls. Now it has become possible to do so directly in cockpit. You can simply specific or all variables from the process history view.
+In the previous alpha, we introduced the possibility to delete historical variables using API calls. Now it has become possible to do so directly in Cockpit. You can simply specific or all variables from the process history view.
 
 You can find more information on how to use this feature [here](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/process-history-views/).
 
