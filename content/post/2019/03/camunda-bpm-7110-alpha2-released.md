@@ -11,7 +11,7 @@ title = "Camunda BPM 7.11.0-alpha2 Released"
 * Fine-grained Permissions for Tasks, Process Instances, and Process Definitions
 * Java/REST API: Recalculate Timer Due Dates
 * Java/REST API: Case Insensitive Semantics for Task Variables
-* Cockpit: Delete Variable History
+* Delete Variable History in Cockpit Full (Enterprise)
 * [XXX Bug Fixes](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.11.0-alpha2)
 
 You can [Download Camunda for free](https://camunda.com/download/) (click on Preview Release) or [Run it with Docker](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
@@ -115,13 +115,15 @@ taskQuery.caseInstanceVariableValueLikeIgnoreCase(variableName, variableValue)
 You can find more information on the new TaskQuery features [here](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/task/TaskQuery.html).
 
 
-## Cockpit: Delete Variable History
+## Delete Variable History in Cockpit Full (Enterprise)
 
-In the previous alpha, we introduced the possibility to delete historical variables using API calls. Now it has become possible to do so directly in cockpit. You can delete specific or all variables from the process history view.
+In the previous alpha, we introduced the possibility to delete historical variables using API calls. Now it has become possible to do so directly in **Cockpit Full** of the Enterprise Platform. You can delete specific or all variables from the process history view.
 
 {{< figure class="Delete Variable History" src="historical_deletion.png" alt="Screenshot of the cokckpit variable history view">}}
 
 You can find more information on how to use this feature [here](https://docs.camunda.org/manual/latest/webapps/cockpit/bpmn/process-history-views/).
+
+> Please bear in mind that this feature is only available in the Enterprise Edition of the Camunda BPM platform. To try it out anyway, please request a [Free Trial or Quote](https://camunda.com/enterprise/)
 
 
 <!--no-more-->
