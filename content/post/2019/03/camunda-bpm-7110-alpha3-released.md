@@ -23,7 +23,37 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 <!--more-->
 
-## Official Support for camunda-bpm-assert
+## Official Support for Camunda BPM Assert
+
+BPM Assert is now **an official part of Camunda BPM** with the release of version 3.0.0-alpha1.
+
+We want to thank [Martin Schimak and the many other contributors](https://github.com/camunda/camunda-bpm-assert/graphs/contributors), who have made BPM Assert into what it is today.
+
+The current release is mostly concentrated on including the project in the Camunda development lifecycle and resolving compatibility issues. You can read up on this in the separate [blog post](https://blog.camunda.com/post/2019/03/camunda-bpm-assert-300-alpha1-released/).
+
+The highlights from this release:
+
+* new Maven coordinates:
+```xml
+<dependency>
+  <groupId>org.camunda.bpm.assert</groupId>
+  <artifactId>camunda-bpm-assert</artifactId>
+  <version>3.0.0-alpha1</version>
+</dependency>
+```
+
+* no inheritance from [AssertJ](http://joel-costigliola.github.io/assertj/) Assertions anymore
+
+* compatibility artifacts if you want to use BPM Assert with Java 1.7 or Spring Boot 2.0.x (see our [version compatibility overview](https://docs.camunda.org/manual/develop/user-guide/testing/#assertions-version-compatibility))
+
+* official support for CMMN assertions
+
+* assertions for external tasks, just write:
+```java
+complete(externalTask("review"), withVariables("approved", true));
+```
+
+The final release is scheduled for May 31, 2019. Stay tuned for the next releases!
 
 ## Update on Advanced Operator Authorization
 
