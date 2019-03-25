@@ -8,10 +8,12 @@ title = "Camunda BPM 7.11.0-alpha3 Released"
 
 **Camunda BPM 7.11.0-alpha3** is here and the highlights are:
 
-* Fine-grained Permissions for Tasks, Process Instances, and Process Definitions
-* Java/REST API: Recalculate Job Due Dates
-* Java/REST API: Case Insensitive Semantics for Task Variables
-* Delete Variable History in Cockpit Full (Enterprise)
+* Official Support for camunda-bpm-assert
+* Java/REST API: Case Insensitive Semantics for Task Variables Names
+* Java/REST API: Return Variables after task completion
+* Password Policies for engine-managed users
+* Cockpit: Audit Log Dashboard (Enterprise)
+* Cockpit: Recalculate Timer Due Dates
 * [XXX](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.11.0-alpha3)
 
 You can [Download Camunda for free](https://camunda.com/download/) (click on Preview Release) or [Run it with Docker](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
