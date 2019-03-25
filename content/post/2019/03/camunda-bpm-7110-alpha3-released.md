@@ -72,6 +72,23 @@ taskQuery.matchVariableNamesIgnoreCase();
 For more information on how to use this via the REST API check the documentation [here](https://docs.camunda.org/manual/latest/reference/rest/task/post-query/) and [here](https://docs.camunda.org/manual/latest/reference/rest/task/get-query/). If you want to see how it used with the Java API, find the documentation about it [here](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/task/TaskQuery.html).
 
 ## Java/REST API: Return Variables after task completion
+When starting a process instance it is already possible to get the latest variables returned. Now we can do something similar with tasks when they are completed.
+
+With the REST API it is now possible to set the `withVariablesInReturn` property to get all variables in the process scope after the task completes. This can be done on the POST `/task/{taskId}/complete` and POST `/task/{taskId}/submit-form` endpoints like this:
+```javascript
+{"variables":
+    {"aVariable": {"value": "aStringValue"},
+    "anotherVariable": {"value": 42},
+    "aThirdVariable": {"value": true}},
+ "withVariablesInReturn": true
+}
+```
+
+Using the Java API, this can be achieved by using one of the new methods:
+```
+taskService.completeWithVariablesInReturn(String taskId, Map<String, Object> variables)
+formService.submitTaskFormWithVariablesInReturn(String taskId, Map<String, Object> properties);
+```
 
 ## Password Policies for engine-managed users
 
