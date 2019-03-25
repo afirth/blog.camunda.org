@@ -55,16 +55,15 @@ complete(externalTask("review"), withVariables("approved", true));
 
 The final release is scheduled for May 31, 2019. Stay tuned for the next releases!
 
-## Update on Advanced Operator Authorization
-
 ## Java/REST API: Case Insensitive Semantics for Task Variables Names
 
 ## Java/REST API: Return Variables after task completion
 
+## Password Policies for engine-managed users
+
+## Cockpit: Audit Log Dashboard
+
 ## Cockpit: Recalculate Timer Due Dates
-
-## Security Report Issues in Jira
-
 <!--no-more-->
 
 ## What's Next?
