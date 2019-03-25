@@ -56,6 +56,18 @@ complete(externalTask("review"), withVariables("approved", true));
 The final release is scheduled for May 31, 2019. Stay tuned for the next releases!
 
 ## Java/REST API: Case Insensitive Semantics for Task Variables Names
+In the [Camunda 7.11.0-alpha2](../camunda-bpm-7110-alpha2-released) release we introduced task queries where variable names could be treated case-insensitively. To do this, we introduced several new methods. (Nine in total: Three types of variables times three case-insensitive operators)
+
+The team decided that we also want to support case-insensitive variable **names** in task queries which meant that the method count would again increase by nine resulting in 18 methods just for comparing variables case-insensitively.
+
+We decided to drop all this in favor of a more simple solution that can handle variable names and values case-insensitively, needs only two different methods and just has one small trade-off.
+
+With this release you can use one of the following methods to flag the whole query to match all variable names and/or values case-insensitively. The methods for individual variables are no longer supported.
+```
+taskQuery.matchVariableValuesIgnoreCase();
+taskQuery.matchVariableNamesIgnoreCase();
+```
+For more information on how to use this via the REST API check the documentation [here](https://docs.camunda.org/manual/latest/reference/rest/task/post-query/) and [here](https://docs.camunda.org/manual/latest/reference/rest/task/get-query/). If you want to see how it used with the Java API, find the documentation about it [here](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/task/TaskQuery.html).
 
 ## Java/REST API: Return Variables after task completion
 
