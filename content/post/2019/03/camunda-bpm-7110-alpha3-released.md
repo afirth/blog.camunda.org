@@ -92,9 +92,22 @@ formService.submitTaskFormWithVariablesInReturn(String taskId, Map<String, Objec
 
 ## Password Policies for engine-managed users
 
-## Cockpit: Audit Log Dashboard
+## Cockpit: Operations Log Dashboard (Enterprise)
+We love the automation of processes. But sometimes, we have to make changes manually. To keep track of all manual changes, we already offer the `User Operations` table in the History view.
+
+The new Operations Log in Cockpit creates an overview of all User Operations in your application. From here, you can easily keep track of all manual changes made to your processes.
+
+A similar dashboard is planned for Camunda Admin, so stay tuned.
+
+> Please bear in mind that this feature is only available in the Enterprise Edition of the Camunda BPM platform. To try it out anyway, please request a [Free Trial or Quote](https://camunda.com/enterprise/)
+
+
 
 ## Cockpit: Recalculate Timer Due Dates
+In the [Camunda 7.11.0-alpha2](../camunda-bpm-7110-alpha2-released) release the API to Recalculate Job due dates. This feature is now accessible from Cockpit. Recalculation is useful when the due date is dependent on variables or expressions, which will be reevaluated with the current process state. In the process instance runtime view, a new Tab is introduced, which allows for recalculating the timer due date or setting a specific one.
+
+{{<figure src="timer_recalculation.png" alt="Screenshot of the Recalculation Dialog in Cockpit">}}
+
 <!--no-more-->
 
 ## What's Next?
