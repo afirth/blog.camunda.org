@@ -11,7 +11,6 @@ title = "Camunda BPM 7.11.0-alpha3 Released"
 * Official Support for camunda-bpm-assert
 * Java/REST API: Case Insensitive Semantics for Task Variables Names
 * Java/REST API: Return Variables after task completion
-* Password Policies for engine-managed users
 * Cockpit: Audit Log Dashboard (Enterprise)
 * Cockpit: Recalculate Timer Due Dates
 * [XXX](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.11.0-alpha3)
@@ -90,7 +89,6 @@ taskService.completeWithVariablesInReturn(String taskId, Map<String, Object> var
 formService.submitTaskFormWithVariablesInReturn(String taskId, Map<String, Object> properties);
 ```
 
-## Password Policies for engine-managed users
 
 ## Cockpit: Operations Log Dashboard (Enterprise)
 We love the automation of processes. But sometimes, we have to make changes manually. To keep track of all manual changes, we already offer the `User Operations` table in the History view.
