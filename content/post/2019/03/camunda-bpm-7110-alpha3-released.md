@@ -18,7 +18,7 @@ title = "Camunda BPM 7.11.0-alpha3 Released"
 You can [Download Camunda for free](https://camunda.com/download/) (click on Preview Release) or [Run it with Docker](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
 
 
-If you are interested, you can see the complete [release notes](XXX).
+If you are interested, you can see the complete [release notes](https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=15384).
 
 If you want to dig in deeper, you can find the source code on [GitHub](https://github.com/camunda/camunda-bpm-platform/releases/tag/7.11.0-alpha3).
 
@@ -37,9 +37,9 @@ The highlights from this release:
 * new Maven coordinates:
 ```xml
 <dependency>
-  <groupId>org.camunda.bpm.assert</groupId>
-  <artifactId>camunda-bpm-assert</artifactId>
-  <version>3.0.0-alpha1</version>
+  <groupId>org.camunda.bpm.assert</groupId>
+  <artifactId>camunda-bpm-assert</artifactId>
+  <version>3.0.0-alpha1</version>
 </dependency>
 ```
 
@@ -71,11 +71,12 @@ taskQuery.matchVariableNamesIgnoreCase();
 For more information on how to use this via the REST API check the documentation [here](https://docs.camunda.org/manual/latest/reference/rest/task/post-query/) and [here](https://docs.camunda.org/manual/latest/reference/rest/task/get-query/). If you want to see how it used with the Java API, find the documentation about it [here](https://docs.camunda.org/javadoc/camunda-bpm-platform/7.11/org/camunda/bpm/engine/task/TaskQuery.html).
 
 ## Java/REST API: Return Variables after task completion
-When starting a process instance it is already possible to get the latest variables returned. Now we can do something similar with tasks when they are completed.
+When starting a process instance, it is already possible to get the latest variables returned. Now we can do something similar with tasks when they are completed.
 
 With the REST API it is now possible to set the `withVariablesInReturn` property to get all variables in the process scope after the task completes. This can be done on the POST `/task/{taskId}/complete` and POST `/task/{taskId}/submit-form` endpoints like this:
-```javascript
-{"variables":
+```json
+{
+ "variables":
     {"aVariable": {"value": "aStringValue"},
     "anotherVariable": {"value": 42},
     "aThirdVariable": {"value": true}},
@@ -110,10 +111,11 @@ In the [Camunda 7.11.0-alpha2](../camunda-bpm-7110-alpha2-released) release the 
 
 ## What's Next?
 
-This is the third alpha release on the road to **Camunda BPM 7.11** (due May 31, 2019). Stay tuned for more features around permissions, job execution and testing support. For details see our [roadmap](https://camunda.com/learn/community/#roadmap).
+This is the third alpha release on the road to **Camunda BPM 7.11** (due May 31, 2019). Stay tuned for more features around setting engine-wide history time to live and improvements of Audit Log Dashboards. Also please have a look at our [roadmap](https://camunda.com/learn/community/#roadmap).
 
 ## Your Feedback Matters!
 
 With every release, we strive to improve Camunda BPM. To make this possible, we are reliant on your feedback. Feel free to share your ideas and suggestions with us.
 
 You can contact us by writing a post in the [forum](https://forum.camunda.org/).
+
