@@ -2,7 +2,7 @@
 author = "Camunda BPM Team"
 categories = ["Execution"]
 tags = ["Release Note"]
-date = "2019-05-03T18:00:00+01:00"
+date = "2019-04-22T18:00:00+01:00"
 title = "Camunda BPM 7.11.0-alpha4 Released"
 +++
 
@@ -26,8 +26,14 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 ## More User Operation Log Entries
 
 
-## Support for Password Policys
+## Support for Password Policies
+Most online users should know about the importance of choosing a secure password. However, each year the [list of most commonly used passwords](https://en.wikipedia.org/wiki/List_of_the_most_common_passwords) is dominated by passwords like `123456`, `password` and `qwerty`.
 
+With this alpha release we introduce password policies that can be used to enforce certain security standards when choosing a password. Note that this applies only for users that are managed within the Camunda engine. LDAP user management is not affected.
+
+To enable the default password policy set the `enablePasswordPolicy` setting in the engine configuration. The default policy enforces a minimum length (10 characters) and at least one lower case, upper case and special character as well as at least one digit.
+
+It is also possible to deploy your own password policy. More information on that can be found in the [user guide](https://docs.camunda.org/manual/latest/user-guide/process-engine/password-policy/).
 
 ## Tasklist: Case-Insensetive Task Querys
 
