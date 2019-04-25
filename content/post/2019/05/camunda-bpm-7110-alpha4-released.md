@@ -21,9 +21,33 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 <!--more-->
 
 ## Engine Wide History Time to Live
+Introducing [History Cleanup](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/#history-cleanup) to your Camunda BPM applications can reduce your footprint of history data radically. 
+However, adding the necessary `historyTimeToLive` to all your process, case and decision definitions can be a tedious work to do. 
 
+Therefore, we are introducing the `historyTimeToLive` attribute in the [process engine configuration](https://docs.camunda.org/manual/latest/reference/deployment-descriptors/tags/process-engine/#historytimetolive)
+that allows to set an engine-wide default for those definitions. This value is applied as the default whenever new definitions without TTL are deployed. 
+
+Please note that it does not change the TTL of already deployed definitions. You can either redeploy the definitions or use the API method shown below to change history time to live programmatically.
+
+```java
+processEngine.getRepositoryService().updateProcessDefinitionHistoryTimeToLive(processDefinitionId, 5);
+```
 
 ## More User Operation Log Entries
+Audit trails are an essential security element associated with business transactions. Our [user operation log](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/#user-operation-log) 
+allows to keep track of the most important actions users can trigger within the Camunda BPM platform.
+
+In an effort to increase the coverage on logged operations, we are introducing new logs for several actions:
+
+* Create, update and delete users, groups, tenants, memberships and authorizations
+* Set and recalculate job due dates
+* Synchronously delete historic process, decision and task instances
+* Delete batches and historic batches
+* Manually trigger the history cleanup
+* Resolve incidents
+* Update the history time to live on decision and case definitions
+
+You can see the full [list of logged user operations](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/#glossary-of-operations-logged-in-the-user-operation-log) in the documentation.
 
 
 ## Support for Password Policies
