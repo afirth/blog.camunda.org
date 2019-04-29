@@ -60,13 +60,17 @@ To enable the default password policy set the `enablePasswordPolicy` setting in 
 It is also possible to deploy your own password policy. More information on that can be found in the [user guide](https://docs.camunda.org/manual/latest/user-guide/process-engine/password-policy/).
 
 ## Tasklist: Case-Insensetive Task Querys
+In the last Alpha, we introduced a new API to filter task variables caseinsensetively. Camunda Tasklist now makes use of this feature when searching for specific tasks. After adding a variable  filter to your search, a widget will appear. Using the checkboxes, you can configure how you want the variable names and values to be handled.
 
+{{< figure src="variable_filters.png" alt="Variable Filter View">}}
+
+This filter works for Task-, Case- and Process Variables.
 
 <!--no-more-->
 
 ## What's Next?
 
-This is the fourth and last alpha release on the road to **Camunda BPM 7.11** (due May 31, 2019). Please have a look at our [roadmap](https://camunda.com/learn/community/#roadmap) for whats still to come.
+This is the fourth alpha release on the road to **Camunda BPM 7.11** (due May 31, 2019). Please have a look at our [roadmap](https://camunda.com/learn/community/#roadmap) for whats still to come.
 
 ## Your Feedback Matters!
 
