@@ -20,6 +20,9 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 <!--more-->
 
+## Batch Operation to Set a Removal Time
+tbd
+
 ## Engine Wide History Time to Live
 Introducing [History Cleanup](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/#history-cleanup) to your Camunda BPM applications can reduce your footprint of history data radically. 
 However, adding the necessary `historyTimeToLive` to all your process, case and decision definitions can be a tedious work to do. 
