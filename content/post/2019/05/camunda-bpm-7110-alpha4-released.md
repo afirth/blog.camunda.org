@@ -20,8 +20,24 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 <!--more-->
 
-## Batch Operation to Set a Removal Time
-tbd
+## Change the Removal Time for Historic Processes manually
+With Camunda BPM 7.10 we introduced a removal time-based History Cleanup mechanism. This mechanism requires a removal time for each historical instance. The removal time is the time after which an instance shall be removed. 
+
+Sometimes it is necessary to manually postpone or even prevent the deletion of certain historic process instances. Manual intervention to change the removal time was previously not possible.
+
+This release introduces a Batch Operation to asynchronously set the removal time for historical processes and all related entities. The following example shows the usage of the Java API:
+```java
+HistoricProcessInstanceQuery query = historyService.createHistoricProcessInstanceQuery();
+
+Batch batch = historyService.setRemovalTimeToHistoricProcessInstancesAsync()
+  .byQuery(query)
+  .absoluteRemovalTime(new Date()) // set an absolute removal time or null
+  .executeAsync();
+```
+
+Besides the possibility to set the removal time to an absolute value, it is also possible to automatically calculate the removal time by calling the method `.calculatedRemovalTime()`.
+
+Additionally, the removal time can be set across multiple hierarchies by calling the method `.hierarchical()`.
 
 ## Engine Wide History Time to Live
 Introducing [History Cleanup](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/#history-cleanup) to your Camunda BPM applications can reduce your footprint of history data radically. 
