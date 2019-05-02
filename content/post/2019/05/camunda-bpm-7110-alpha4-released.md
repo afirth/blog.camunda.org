@@ -20,10 +20,10 @@ If you want to dig in deeper, you can find the source code on [GitHub](https://g
 
 <!--more-->
 
-## Change the Removal Time for Historic Processes manually
+## Change the Removal Time for Historic Processes
 With Camunda BPM 7.10 we introduced a removal time-based History Cleanup mechanism. This mechanism requires a removal time for each historical instance. The removal time is the time after which an instance shall be removed. 
 
-Sometimes it is necessary to manually postpone or even prevent the deletion of certain historic process instances. Manual intervention to change the removal time was previously not possible.
+Sometimes it is necessary to postpone or even prevent the deletion of certain historic process instances. Changing the removal time for certain instances was previously not possible.
 
 This release introduces a Batch Operation to asynchronously set the removal time for historical processes and all related entities. The following example shows the usage of the Java API:
 ```java
