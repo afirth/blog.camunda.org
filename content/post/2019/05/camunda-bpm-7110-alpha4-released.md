@@ -78,7 +78,7 @@ To enable the default password policy set the `enablePasswordPolicy` setting in 
 
 It is also possible to deploy your own password policy. More information on that can be found in the [user guide](https://docs.camunda.org/manual/latest/user-guide/process-engine/password-policy/).
 
-## Tasklist: Case-Insensetive Task Querys
+## Tasklist: Case-Insensitive Task Queries
 In the last Alpha, we introduced a new API to filter task variables caseinsensetively. Camunda Tasklist now makes use of this feature when searching for specific tasks. After adding a variable  filter to your search, a widget will appear. Using the checkboxes, you can configure how you want the variable names and values to be handled.
 
 {{< figure src="variable_filters.png" alt="Variable Filter View">}}
