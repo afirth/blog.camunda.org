@@ -8,13 +8,17 @@ title = "Camunda BPM 7.11.0-alpha4 Released"
 
 **Camunda BPM 7.11.0-alpha4** is here and the highlights are:
 
-
-* [XX Bug Fixes](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.11.0-alpha4)
+* Change the Removal Time for Historic Processes
+* Engine Wide History Time to Live
+* More User Operation Log Entries
+* Support for Password Policies
+* Tasklist: Case-Insensitive Task Queries
+* [8 Bug Fixes](https://app.camunda.com/jira/issues/?jql=issuetype%20%3D%20%22Bug%20Report%22%20AND%20fixVersion%20%3D%207.11.0-alpha4)
 
 You can [Download Camunda for free](https://camunda.com/download/) (click on Preview Release) or [Run it with Docker](https://hub.docker.com/r/camunda/camunda-bpm-platform/).
 
 
-If you are interested, you can see the complete [release notes](UPDATE LINK).
+If you are interested, you can see the complete [release notes](https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=15390).
 
 If you want to dig in deeper, you can find the source code on [GitHub](https://github.com/camunda/camunda-bpm-platform/releases/tag/7.11.0-alpha4).
 
@@ -41,10 +45,10 @@ Additionally, the removal time can be set across multiple hierarchies by calling
 
 ## Engine Wide History Time to Live
 Introducing [History Cleanup](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/#history-cleanup) to your Camunda BPM applications can reduce your footprint of history data radically. 
-However, adding the necessary `historyTimeToLive` to all your process, case and decision definitions can be a tedious work to do. 
+However, adding the necessary `historyTimeToLive` to all your process, case and decision definitions can be tedious work to do. 
 
 Therefore, we are introducing the `historyTimeToLive` attribute in the [process engine configuration](https://docs.camunda.org/manual/latest/reference/deployment-descriptors/tags/process-engine/#historytimetolive)
-that allows to set an engine-wide default for those definitions. This value is applied as the default whenever new definitions without TTL are deployed. 
+that allows setting an engine-wide default for those definitions. This value is applied as the default whenever new definitions without TTL are deployed. 
 
 Please note that it does not change the TTL of already deployed definitions. You can either redeploy the definitions or use the API method shown below to change history time to live programmatically.
 
@@ -58,7 +62,7 @@ allows to keep track of the most important actions users can trigger within the 
 
 In an effort to increase the coverage on logged operations, we are introducing new logs for several actions:
 
-* Create, update and delete users, groups, tenants, memberships and authorizations
+* Create, update and delete users, groups, tenants, memberships, and authorizations
 * Set and recalculate job due dates
 * Synchronously delete historic process, decision and task instances
 * Delete batches and historic batches
@@ -72,14 +76,14 @@ You can see the full [list of logged user operations](https://docs.camunda.org/m
 ## Support for Password Policies
 Most online users should know about the importance of choosing a secure password. However, each year the [list of most commonly used passwords](https://en.wikipedia.org/wiki/List_of_the_most_common_passwords) is dominated by passwords like `123456`, `password` and `qwerty`.
 
-With this alpha release we introduce password policies that can be used to enforce certain security standards when choosing a password. Note that this applies only for users that are managed within the Camunda engine. LDAP user management is not affected.
+With this alpha release, we introduce password policies that can be used to enforce certain security standards when choosing a password. Note that this applies only for users that are managed within the Camunda engine. LDAP user management is not affected.
 
 To enable the default password policy set the `enablePasswordPolicy` setting in the engine configuration. The default policy enforces a minimum length (10 characters) and at least one lower case, upper case and special character as well as at least one digit.
 
 It is also possible to deploy your own password policy. More information on that can be found in the [user guide](https://docs.camunda.org/manual/latest/user-guide/process-engine/password-policy/).
 
 ## Tasklist: Case-Insensitive Task Queries
-In the last Alpha, we introduced a new API to filter task variables caseinsensetively. Camunda Tasklist now makes use of this feature when searching for specific tasks. After adding a variable  filter to your search, a widget will appear. Using the checkboxes, you can configure how you want the variable names and values to be handled.
+In the last Alpha, we introduced a new API to filter task variables case-insensitively. Camunda Tasklist now makes use of this feature when searching for specific tasks. After adding a variable filter to your search, a widget will appear. Using the checkboxes, you can configure how you want the variable names and values to be handled.
 
 {{< figure src="variable_filters.png" alt="Variable Filter View">}}
 
@@ -89,7 +93,7 @@ This filter works for Task-, Case- and Process Variables.
 
 ## What's Next?
 
-This is the fourth alpha release on the road to **Camunda BPM 7.11** (due May 31, 2019). Please have a look at our [roadmap](https://camunda.com/learn/community/#roadmap) for whats still to come.
+This is the fourth alpha release on the road to **Camunda BPM 7.11** (due May 31, 2019). Please have a look at our [roadmap](https://camunda.com/learn/community/#roadmap) for what's still to come.
 
 ## Your Feedback Matters!
 
