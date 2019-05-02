@@ -69,6 +69,10 @@ In an effort to increase the coverage on logged operations, we are introducing n
 * Manually trigger the history cleanup
 * Resolve incidents
 * Update the history time to live on decision and case definitions
+* Create, update and delete filters
+* Delete metrics
+* Execute and delete jobs
+* Set the priority of and unlock external tasks
 
 You can see the full [list of logged user operations](https://docs.camunda.org/manual/latest/user-guide/process-engine/history/#glossary-of-operations-logged-in-the-user-operation-log) in the documentation.
 
